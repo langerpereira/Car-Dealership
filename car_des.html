@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Description - LUXDRIVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    .bg-custom {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    .text-custom {
+      color: rgba(31, 41, 55, 0.9);
+    }
+    /* Hamburger menu styles */
+    .hamburger {
+        padding: 1rem;
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 50; /* Ensure it's on top of other content */
+    }
+    
+    .hamburger span {
+      height: 2px;
+      width: 25px;
+      background: white;
+      margin-bottom: 4px;
+      border-radius: 5px;
+    }
+    
+    @media (max-width: 1024px) {
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Mobile menu styles */
+    #mobileMenu {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 2rem;
+      justify-content: center; /* Center content vertically */
+      align-items: center; /* Center content horizontally */
+      backdrop-filter: blur(8px); /* Apply blur effect */
+      z-index: 50;
+      display: none;
+      
+    }
+
+    #mobileMenu.active {
+      display: block;
+    }
+
+    /* Center align links in mobile menu */
+    #mobileMenu a {
+      display: block;
+      text-align: center;
+      margin-bottom: 1rem;
+      translate: 0px 150px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="flex flex-col min-h-screen">
+    <header class="bg-custom text-white py-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <img src="images/vecteezy_vintage-car-logo-illustration-with_24558471.png" alt="Car Dealership" class="h-12">
+        <strong class="text-4xl">LUXDRIVE</strong>
+        <nav class="hidden lg:flex space-x-4">
+          <a href="about.html" class="text-white hover:text-gray-300">About Us</a>
+          <a href="login.html" class="text-white hover:text-gray-300">Log in</a>
+          <a href="models.html" class="text-white hover:text-gray-300">Models</a>
+        </nav>
+        <!-- Hamburger menu -->
+        <div class="lg:hidden">
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden" onclick="toggleMenu()">
+        <div class="container mx-auto text-right">
+          <button id="menu-close" class="text-white">
+            <!-- Close menu icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="container mx-auto py-4">
+          <a href="about.html" class="block text-white hover:text-gray-300 py-2">About Us</a>
+          <a href="login.html" class="block text-white hover:text-gray-300 py-2">Log in</a>
+          <a href="models.html" class="block text-white hover:text-gray-300 py-2">Models</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow bg-white py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-8">Car Description</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <img src="images/Rolls-Royce-Computer-Wallpaper-4k.jpg" alt="Car Image" class="w-full h-auto rounded-lg">
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold mb-4">Car Name</h2>
+            <p class="text-lg mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in odio mollis, nec aliquet odio vehicula.</p>
+            <h3 class="text-xl font-bold mb-2">Specifications:</h3>
+            <ul class="list-disc pl-6 text-lg mb-6">
+              <li>Engine: 2.0L Turbocharged</li>
+              <li>Horsepower: 300 HP</li>
+              <li>Transmission: Automatic</li>
+              <li>Top Speed: 250 km/h</li>
+            </ul>
+            <p class="text-lg">Curabitur aliquet erat euismod est maximus, in dapibus elit consectetur. Donec dignissim urna non est semper, ac maximus ex luctus.</p>
+          </div>
+        </div>
+
+        <!-- Back button -->
+        <div class="mt-8">
+          <a href="models.html" class="bg-blue-500 text-white px-6 py-3 rounded-md text-lg">Back to Models</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-custom text-white py-8">
+      <div class="container mx-auto text-center">
+        <p class="text-lg">&copy; 2024 LUXDRIVE. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active'); // Toggle the active class
+    }
+  </script>
+</body>
+</html>

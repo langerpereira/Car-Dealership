@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/split-type"></script>
+    <title>Car Dealership</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-[url('images\pexels-sami-aksu-48867324-11189623.jpg')] bg-hero bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden"
+  >
+    <div class="bg-hero h-screen flex flex-col">
+      <header class="navbar flex justify-between items-center p-4 relative">
+        <!-- logo -->
+        <img
+          src="images/vecteezy_vintage-car-logo-illustration-with_24558471.png"
+          alt="Car Dealership"
+          class="h-12"
+        />
+        <!-- nav links -->
+        <div class="hidden lg:block">
+          <a href="about.html" class="navlink">About Us</a>
+          <a href="login.html" class="navlink">Log in</a>
+          <a href="models.html" class="navlink">Models</a>
+        </div>
+        <div class="lg:hidden z-50">
+          <button id="menu-toggle" class="text-white">
+            <!-- Hamburger menu icon -->
+            <svg
+              class="w-10 h-10"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-75 text-white p-4 z-40 backdrop-blur flex flex-col justify-center items-center"
+      >
+        <button id="menu-close" class="absolute top-4 right-4 text-white p-4">
+          <!-- Close menu icon -->
+          <svg
+            class="w-10 h-10"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <a href="about.html" class="block navlink text-2xl mb-4">About Us</a>
+        <a href="login.html" class="block navlink text-2xl mb-4">Log in</a>
+        <a href="models.html" class="block navlink text-2xl">Models</a>
+      </div>
+      <div
+        class="flex-grow flex flex-col justify-center items-center text-center"
+      >
+        <p class="text-4xl md:text-8xl text-cyan-300 font-semibold">
+          The Best Dealership
+        </p>
+        <p class="text-2xl md:text-5xl text-cyan-200 p-10">In the world</p>
+        <p
+          id="text"
+          class="text-6xl md:text-[13rem] text-cyan-50 font-bold"
+          style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+        >
+          LUXDRIVE
+        </p>
+      </div>
+      <div class="flex justify-center pb-12">
+        <a href="models.html">
+          <button class="btn inventory">Browse</button>
+        </a>
+      </div>
+    </div>
+    <script>
+      let text = new SplitType("#text");
+      let character = document.querySelectorAll(".char");
+
+      for (i = 0; i < character.length; i++) {
+        character[i].classList.add("translate-y-full");
+      }
+
+      gsap.to(".char", {
+        y: 0,
+        stagger: 0.09,
+        delay: 0.07,
+        duration: 1.1,
+      });
+
+      // Toggle mobile menu
+      document.getElementById("menu-toggle").addEventListener("click", function () {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu
+      document.getElementById("menu-close").addEventListener("click", function () {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.add("hidden");
+      });
+    </script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
